@@ -8,9 +8,9 @@ export default function Forecast({ forecast }) {
             </h3>
 
             <div className="flex justify-between">
-                {/* {forecast.map((day, index) => (
+                {forecast.map((day, index) => (
                     <ForecastItem key={index} day={day} />
-                ))} */}
+                ))}
             </div>
         </div>
     );

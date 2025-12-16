@@ -1,13 +1,20 @@
 import Forecast from "./Forecast.jsx"
 import WeatherCard from "./WheaterCard.jsx"
 
-export default function SearchBar({setCity,city}) {
+export default function SearchBar({
+    city,
+    setCity,
+    handleSearch,
+    weather,
+    forecast
+}) {
 
     const onSubmit = (formData) => {
         const newCity = formData.get('city').trim()
         if(newCity.length === 0) return alert('You must write valid city')
         setCity(newCity)
         console.log(newCity);
+        handleSearch(newCity)
     }
     return (
 
@@ -28,8 +35,8 @@ export default function SearchBar({setCity,city}) {
         </form>
         {city && (
             <>
-                <WeatherCard/>
-                <Forecast/>
+                <WeatherCard {...weather}/>
+                <Forecast forecast={forecast}/>
             </>
         )}
         </div>
